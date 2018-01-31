@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe 'yum-epel' unless node['platform_family'] == 'debian'
+
 package node['redis']['pkg_name']
 
 template File.join(node['redis']['conf_dir'], 'redis.conf') do
