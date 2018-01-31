@@ -21,11 +21,12 @@ case node['platform_family']
 when 'debian'
   default['redis']['sysconfig_dir'] = '/etc/default'
   default['redis']['pkg_name'] = 'redis-server'
+  default['redis']['conf_dir'] = '/etc/redis'
 when 'rhel', 'fedora'
   default['redis']['sysconfig_dir'] = '/etc/sysconfig'
   default['redis']['pkg_name'] = 'redis'
+  default['redis']['conf_dir'] = '/etc'
 end
-default['redis']['conf_dir'] = '/etc/redis'
 
 default['redis']['config'] = {
   'bind' => '127.0.0.1',
