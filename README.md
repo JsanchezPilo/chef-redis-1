@@ -45,7 +45,7 @@ Configure redis server.
 * `node['redis']['config']` - hash of config options
 
 ## License & Authors
-- Author:: Andrei Skopenko <andrey@skopenko.net>
+- Author:: Andrei Skopenko <andrei@skopenko.net>
 
 ```text
 Licensed under the Apache License, Version 2.0 (the "License");
