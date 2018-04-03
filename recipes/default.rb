@@ -25,7 +25,8 @@ template File.join(node['redis']['conf_dir'], 'redis.conf') do
   variables options: node['redis']['config']
   owner 'root'
   group 'root'
-  mode '0400'
+  mode '0644'
+  notifies :restart, "service[#{node['redis']['service_name']}]"
 end
 
 template File.join(node['redis']['sysconfig_dir'], node['redis']['pkg_name']) do
@@ -33,9 +34,10 @@ template File.join(node['redis']['sysconfig_dir'], node['redis']['pkg_name']) do
   owner 'root'
   group 'root'
   mode '0755'
+  notifies :restart, "service[#{node['redis']['service_name']}]"
 end
 
-service 'redis' do
+service node['redis']['service_name'] do
   supports status: true, reload: true, restart: true
   action [:enable, :start]
 end
