@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'yum-epel' unless node['platform_family'] == 'debian'
+#include_recipe 'yum-epel' unless node['platform_family'] == 'debian'
 
 package node['redis']['pkg_name']
 
