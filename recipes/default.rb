@@ -32,7 +32,7 @@ end
 
 template File.join(node['redis']['sysconfig_dir'], node['redis']['pkg_name']) do
   source 'redis.erb'
-  owner 'redis'
+  user  'redis'
   group 'redis'
   mode '0755'
   notifies :restart, "service[#{node['redis']['service_name']}]"
