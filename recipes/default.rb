@@ -39,6 +39,9 @@ template File.join(node['redis']['sysconfig_dir'], node['redis']['pkg_name']) do
 end
 
 service node['redis']['service_name'] do
+  type = 'simple'
+  owner 'redis'
+  group 'redis'
   supports status: true, reload: true, restart: true
   action [:enable, :start]
 end
