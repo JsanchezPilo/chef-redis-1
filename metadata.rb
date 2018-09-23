@@ -14,6 +14,6 @@ supports 'fedora'
 supports 'debian'
 supports 'ubuntu'
 
-depends 'yum-epel'
+#depends 'yum-epel'
 
 recipe 'redis-simple::default', 'Install and configure Redis daemon'
