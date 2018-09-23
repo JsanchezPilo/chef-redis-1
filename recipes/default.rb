@@ -23,6 +23,7 @@ apt_package node['redis']['pkg_name']
 
 template File.join(node['redis']['conf_dir'], 'redis.conf') do
   variables options: node['redis']['config']
+  type = 'simple'
   owner 'redis'
   group 'redis'
   mode '0644'
