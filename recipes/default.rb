@@ -23,16 +23,16 @@ apt_package node['redis']['pkg_name']
 
 template File.join(node['redis']['conf_dir'], 'redis.conf') do
   variables options: node['redis']['config']
-  owner 'root'
-  group 'root'
+  owner 'redis'
+  group 'redis'
   mode '0644'
   notifies :restart, "service[#{node['redis']['service_name']}]"
 end
 
 template File.join(node['redis']['sysconfig_dir'], node['redis']['pkg_name']) do
   source 'redis.erb'
-  owner 'root'
-  group 'root'
+  owner 'reids'
+  group 'redis'
   mode '0755'
   notifies :restart, "service[#{node['redis']['service_name']}]"
 end
