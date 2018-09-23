@@ -19,7 +19,7 @@
 
 #include_recipe 'yum-epel' unless node['platform_family'] == 'debian'
 
-package node['redis']['pkg_name']
+apt_package node['redis']['pkg_name']
 
 template File.join(node['redis']['conf_dir'], 'redis.conf') do
   variables options: node['redis']['config']
